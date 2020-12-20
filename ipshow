@@ -1,10 +1,9 @@
 #!/usr/bin/python3
-
+import datetime
 import os 
 import sys
 import requests
 import json
-from colorama import Fore, Back, Style
 
 # getting api urls
 get_api = requests.get("https://pastebin.com/raw/ZLiLZjMC")
@@ -61,7 +60,8 @@ def torDetector(ip):    # search in database if IP is a tor exit node
         return None
 
 def main():     # main method
-
+    
+    print(str(datetime.datetime.now()))
     json_ip = getIP()
     json_ip_info = getIPInfo(json_ip["ip"]) 
     dns_info = getDNS()

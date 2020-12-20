@@ -11,13 +11,6 @@ get_api = requests.get("https://pastebin.com/raw/ZLiLZjMC")
 api_url_list = get_api.text.split()
 
 
-def clear():    # Just to clean terminal
-    if os.name == "posix":
-        os.system("clear")
-    elif os.name == "ce" or os.name == "nt" or os.name == "dos":
-        os.system("cls")
-
-
 def getIP():    # perform request to get public real ip in json format
     request = requests.get(api_url_list[0])
     return json.loads(json.dumps(request.json()))

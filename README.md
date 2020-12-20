@@ -10,16 +10,16 @@
 
 
 ## General info
->Geolocalize your IP address, and test if it's an onion exit node. Just executing this script.
+>Geolocalize your IP address, and test if it's a tor exit node. Just executing this script.
 
 
 ## Setup
 
 ***Install requirements***
 
-`pip3 install requests
+pip3 install requests
 
-`pip3 install colorama (not implemented yet, but necessary to import)
+pip3 install colorama (not implemented yet, but necessary to import)
 
 
 ## Examples

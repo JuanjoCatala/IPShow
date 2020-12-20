@@ -18,6 +18,7 @@
 ***Install requirements***
 
 `pip3 install requests
+
 `pip3 install colorama (not implemented yet, but necessary to import)
 
 
@@ -31,8 +32,8 @@
 
 ## Features to add
 
-Soon color will be added.
+Soon color will be added and I'll be in search of the best API
 
 ## Recomendations
 
-For a more comfortable use, add the script to your #PATH
+For a more comfortable use, add the script to your $PATH

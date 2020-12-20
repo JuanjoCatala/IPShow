@@ -10,7 +10,7 @@ from colorama import Fore, Back, Style
 get_api = requests.get("https://pastebin.com/raw/ZLiLZjMC")
 api_url_list = get_api.text.split()
 
-# Evaluating if there ahre args
+# Evaluating if there are args
 
 arg = False
 

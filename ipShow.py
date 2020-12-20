@@ -12,9 +12,9 @@ api_url_list = get_api.text.split()
 
 def clear():    # Just to clean terminal
     if os.name == "posix":
-        os.system ("clear")
+        os.system("clear")
     elif os.name == "ce" or os.name == "nt" or os.name == "dos":
-        os.system ("cls")
+        os.system("cls")
 
 
 def getIP():    # perform request to get public real ip in json format
@@ -33,12 +33,27 @@ def main():     # main method
         json_ip = getIP()
         json_ip_info = getIPInfo(json_ip["ip"]) 
        
-        keys_list = None
+# -------------- Printing IP ----------------------------------
+        
+        print(" ")
+        print("IP" + " --> " + json_ip["ip"])
+
+# --------------- Printing IP info -----------------------------
+        keys_list = []
+        values_list = []
+
         for item in json_ip_info:
-
             keys_list.append(str(item))
-            print(keys_list) 
+        
+        for item in json_ip_info.values():
+            values_list.append(item)
+       
+        i = 0
+        for item in range(len(keys_list)):
+            print(str(keys_list[i]) + " --> " + str(values_list[i]))
+            i = i + 1
 
+# ----------------------------------------------------------------
                 # Defining exceptions
     except requests.exceptions.ConnectionError:
         print("ConnectionError - Check internet connection:(")
@@ -59,4 +74,5 @@ def main():     # main method
 
 
 # -------------------------------------------------------
+
 main()          # Here main is called

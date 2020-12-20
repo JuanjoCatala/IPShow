@@ -45,11 +45,11 @@ def main():     # main method
     keys_list = []
     values_list = []
 
-    for item in json_ip_info:
-        keys_list.append(str(item))
+    for key in json_ip_info:
+        keys_list.append(str(key))
         
-    for item in json_ip_info.values():
-        values_list.append(item)
+    for value in json_ip_info.values():
+        values_list.append(value)
        
     i = 0
     for item in range(len(keys_list)):

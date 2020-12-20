@@ -26,6 +26,16 @@ def getIPInfo(ip):        # perform request to get info about ip
     request = requests.get(api_url_list[1])
     return json.loads(json.dumps(request.json()))
 
+def torDetector(ip):
+    request = requests.get(api_url_list[2])
+    tor_exit_nodes_list = request.text.split()
+
+    if ip in tor_exit_nodes_list:
+        return True
+    elif ip not in tor_exit_nodes_list:
+        return False
+    else:
+        return None
 
 def main():     # main method
     try:
@@ -52,6 +62,10 @@ def main():     # main method
         for item in range(len(keys_list)):
             print(str(keys_list[i]) + " --> " + str(values_list[i]))
             i = i + 1
+
+# ---------------- Checking if IP is in tor exit node database ---
+        print(" ")
+        print("Tor IP" + " --> " + str(torDetector(json_ip["ip"])))
 
 # ----------------------------------------------------------------
                 # Defining exceptions

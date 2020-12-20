@@ -10,7 +10,7 @@
 
 
 ## General info
->Geolocalize your IP address, and test if it's a tor exit node. Just executing this script.
+>Geolocalize your IP or a custom one, and test if it's a tor exit node. Just executing this script.
 
 
 ## Setup

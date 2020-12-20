@@ -26,9 +26,9 @@ pip3 install colorama (not implemented yet, but necessary to import)
 
 ***For basic info:***
 
-`python3 ipShow.py` (get info about your IP)
+`python3 ipshow` (get info about your IP)
 
-`python3 ipShow.py 82.221.128.XXX` (get info from custom IP)
+`python3 ipshow 82.221.128.XXX` (get info from custom IP)
 
 ![alt text](https://i.imgur.com/BjyVWd9.png)
 

@@ -10,14 +10,39 @@ from colorama import Fore, Back, Style
 get_api = requests.get("https://pastebin.com/raw/ZLiLZjMC")
 api_url_list = get_api.text.split()
 
+# Evaluating if there ahre args
+
+arg = False
+
+if sys.argv[1] == None:
+    pass
+if sys.argv[1] != None:
+    arg = True
+
+
+def checkIP(diccionary):
+
+    if diccionary["status"] == "fail":
+        print("invalid IP")
+        sys.exit()
+    else:
+        pass
 
 def getIP():    # perform request to get public real ip in json format
     request = requests.get(api_url_list[0])
-    return json.loads(json.dumps(request.json()))
+    if not arg:
+        return json.loads(json.dumps(request.json()))
+    else:
+        return {"ip":sys.argv[1]}
+    
 
 def getIPInfo(ip):  # perform request to get info about ip
     api_url_list[1] = str(api_url_list[1] + str(ip))
     request = requests.get(api_url_list[1])
+    
+    if arg:  #check if ip from args is valid
+        checkIP(json.loads(json.dumps(request.json())))
+
     return json.loads(json.dumps(request.json()))
 
 def torDetector(ip):    # search in database if IP is a tor exit node

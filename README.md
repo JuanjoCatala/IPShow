@@ -28,7 +28,7 @@ pip3 install colorama (not implemented yet, but necessary to import)
 
 `python3 ipShow.py`
 
-![alt text](https://i.imgur.com/XS1QxVF.png)
+![alt text](https://i.imgur.com/BjyVWd9.png)
 
 ## Features to add
 

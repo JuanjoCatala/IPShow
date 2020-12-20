@@ -45,8 +45,12 @@ def getIPInfo(ip):  # perform request to get info about ip
 
     return json.loads(json.dumps(request.json()))
 
-def torDetector(ip):    # search in database if IP is a tor exit node
+def getDNS():
     request = requests.get(api_url_list[2])
+    return json.loads(json.dumps(request.json()))
+
+def torDetector(ip):    # search in database if IP is a tor exit node
+    request = requests.get(api_url_list[3])
     tor_exit_nodes_list = request.text.split()
 
     if ip in tor_exit_nodes_list:
@@ -60,6 +64,7 @@ def main():     # main method
 
     json_ip = getIP()
     json_ip_info = getIPInfo(json_ip["ip"]) 
+    dns_info = getDNS()
        
 #-------------- Printing IP ----------------------------------
         
@@ -78,11 +83,11 @@ def main():     # main method
     keys_list = []
     values_list = []
 
-    for key in json_ip_info:
+    for key in json_ip_info.keys():
         keys_list.append(str(key))
         
     for value in json_ip_info.values():
-        values_list.append(value)
+        values_list.append(str(value))
        
     i = 0
     for item in range(len(keys_list)):
@@ -91,6 +96,14 @@ def main():     # main method
 
         if i == 13:
             break
+   
+    #---- printing dns info -----
+    if arg == False:
+        info = dns_info["dns"]
+        print(" ")
+        print("dns-ip" + " --> " + str(info["ip"]))
+        print("dns-geo" + " --> " + str(info["geo"]))
+
 
 # ---------------- Checking if IP is in tor exit node database ---
     print(" ")
